@@ -1,0 +1,20 @@
+<h3>Yeni todo Ekle - Reactive</h3>
+<form [formGroup]="todoAddForm" (ngSubmit)="add()" class="form-group">
+    <div>
+        <input type="number" id="userId" name="userId" formControlName="userId" class="form-control" placeholder="userId">
+        
+    </div>
+    <div>
+        <input type="number" id="id" name="id" formControlName="id" class="form-control" placeholder="id">
+        
+    </div>
+    <div>
+        <input type="text" id="title" name="title" formControlName="title" class="form-control" placeholder="title">
+        
+    </div>
+    <div>
+        <input type="boolean" id="completed" name="completed" formControlName="completed" class="form-control" placeholder="completed">
+        
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="add()" >Todo Ekle</button>
+</form>

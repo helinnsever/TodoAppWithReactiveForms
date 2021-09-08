@@ -1,0 +1,36 @@
+<div>
+  <input type="text" [(ngModel)]="filterText" class="form-control" placeholder="arama"/>
+  <span *ngIf="filterText" class="badge bg-primary">{{filterText}}aradınız</span>
+</div>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">UserId</th>
+        <th scope="col">Id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Completed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos | filtertodo:filterText | paginate: { itemsPerPage: 10, currentPage: page }">
+        <td>{{todo.userId}}</td>
+        <td ><a routerLink="todos/{{todo.id}}">{{todo.id}}</a></td>
+        <td>{{todo.title}}</td>
+        <td>{{todo.completed}}</td>
+       <td><button type="button" class="btn btn-danger" (click)="delete(todo.id)" >sil</button></td> 
+       <td><button type="button" class="btn btn-success" routerLink="/../todos/update/{{ todo.id }}">Güncelle</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination-controls
+  class="pagi"
+  (pageChange)="page = $event"
+></pagination-controls>
+
+  
+
+
+  

@@ -1,0 +1,21 @@
+<div>
+  <input type="text" [(ngModel)]="filterText" class="form-control" placeholder="arama"/>
+  <span *ngIf="filterText" class="badge bg-primary">{{filterText}}aradınız</span>
+</div>
+<table class="table table-borderless active">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users | filter:filterText">
+      <td ><a routerLink="users/{{user.id}}">{{user.id}}</a></td>
+      <td>{{user.name}}</td>
+    </tr>
+  </tbody>
+     
+</table>
+
+
